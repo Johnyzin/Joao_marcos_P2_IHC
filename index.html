@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Padaria Pão & Afeto — pães fresquinhos, doces e salgados feitos com carinho.">
+  <title>Pão &amp; Afeto - Padaria artesanal</title>
+  <link rel="icon" type="image/png" href="signo_visual.png">
+  <style>
+    :root { --ink:#3a281e; --cream:#fff8ed; --bread:#c8783d; --red:#9b4330; --muted:#725d4d; --gold:#f2b705; }
+    * { box-sizing:border-box; }
+    html { scroll-behavior:smooth; }
+    body { margin:0; color:var(--ink); background:var(--cream); font-family:Georgia, 'Times New Roman', serif; }
+    header { background:#fffdf8; border-bottom:1px solid #eadccc; }
+    .top { max-width:1120px; margin:auto; padding:10px 24px; display:flex; align-items:center; justify-content:space-between; gap:24px; }
+    .brand { text-decoration:none; display:block; }
+    nav { display:flex; flex-wrap:wrap; justify-content:flex-end; gap:8px 12px; }
+    nav a { color:var(--ink); font:600 .96rem Arial,sans-serif; text-decoration:none; }
+    .hero { min-height:440px; display:grid; place-items:center; text-align:center; padding:72px 24px; background:linear-gradient(90deg,rgba(43,27,17,.69),rgba(43,27,17,.23)), linear-gradient(135deg,#8b4b2e,#d6a36c 55%,#f0d5aa); color:white; }
+    .hero-inner { max-width:720px; }
+    .eyebrow { text-transform:uppercase; letter-spacing:.16em; font:700 .78rem Arial,sans-serif; }
+    h1 { margin:14px 0; font-size:clamp(2.5rem,7vw,4.7rem); line-height:1.02; }
+    .hero p { font-size:1.2rem; line-height:1.6; margin:0 auto 26px; max-width:600px; }
+    main { max-width:1120px; margin:auto; padding:64px 24px; }
+    .intro { text-align:center; max-width:680px; margin:0 auto 38px; }
+    h2 { font-size:2rem; margin:0 0 12px; }
+    .intro p,.card p { color:var(--muted); line-height:1.6; }
+    .cards { display:grid; grid-template-columns:repeat(3,1fr); gap:18px; }
+    .card { background:#fffdf8; border:1px solid #eadccc; border-radius:9px; padding:25px; }
+    .icon { font-size:1.8rem; }
+    .card h3 { margin:12px 0 8px; font-size:1.35rem; }
+    .card p { margin:0 0 16px; }
+    .callout { margin-top:48px; padding:28px; border-radius:9px; background:#f1e2cf; text-align:center; }
+    .callout p { color:var(--muted); }
+    footer { background:#3a281e; color:#fff8ed; padding:30px 24px; }
+    .foot { max-width:1120px; margin:auto; display:flex; justify-content:space-between; gap:20px; flex-wrap:wrap; font: .92rem Arial,sans-serif; }
+    footer a { color:#fff8ed; }
+
+    .button { display:inline-block; background:#fff8ed; color:var(--red); padding:13px 21px; border:2px solid var(--red);
+              border-radius:5px; font:700 .95rem Arial,sans-serif; text-decoration:none; cursor:pointer;
+              box-shadow:0 2px 4px rgba(0,0,0,.25); transition:.15s; }
+    .button:hover { background:var(--red); color:white; transform:translateY(-2px); box-shadow:0 4px 8px rgba(0,0,0,.3); }
+    .button:focus-visible, nav a:focus-visible, input:focus-visible, select:focus-visible, textarea:focus-visible { outline:3px solid var(--gold); outline-offset:2px; }
+    .button:disabled { background:#e5e5e5; color:#888; border-color:#ccc; box-shadow:none; cursor:not-allowed; transform:none; }
+    nav a { padding:6px 10px; border-radius:5px; border-bottom:3px solid transparent; }
+    nav a:hover { color:var(--red); background:#f1e2cf; }
+    nav a.ativo { border-bottom-color:var(--gold); }
+    .card { transition:.15s; }
+    .card:hover { box-shadow:0 6px 14px rgba(0,0,0,.15); transform:translateY(-3px); border-color:var(--bread); }
+
+    .barra-status { background:#e8f5e9; color:#1b5e20; text-align:center; padding:6px; font:600 .85rem Arial,sans-serif; }
+    #mensagem { font:700 1rem Arial,sans-serif; color:#1b5e20; text-align:center; }
+
+    form { display:grid; gap:8px; max-width:460px; margin:48px auto 0; background:#fffdf8; padding:24px; border:1px solid #eadccc; border-radius:9px; }
+    label { font:700 .9rem Arial,sans-serif; }
+    input, select, textarea { width:100%; padding:10px; border:2px solid #ccc; border-radius:6px; font:1rem Arial,sans-serif; }
+    input:invalid:not(:placeholder-shown) { border-color:#c62828; }
+    input:valid:not(:placeholder-shown) { border-color:#2e7d32; }
+    .botoes { display:flex; gap:10px; flex-wrap:wrap; margin-top:8px; }
+
+    @media(max-width:760px) { .top { align-items:flex-start; flex-direction:column; } nav { justify-content:flex-start; } .cards { grid-template-columns:1fr; } .hero { min-height:380px; } }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="barra-status">● Sistema Online • Recebendo Encomendas</div>
+    <div class="top">
+      <a class="brand" href="#inicio" aria-label="Pão e Afeto - voltar ao início">
+        <img src="signo_visual.png" alt="Logo Pão e Afeto" height="65" style="height:65px;width:auto;display:block;">
+      </a>
+      <nav aria-label="Menu principal">
+        <a href="#doces" class="ativo" aria-current="page">🍰 Doces</a>
+        <a href="#salgados">🥐 Salgados</a>
+        <a href="#encomendas">🎂 Encomendas</a>
+        <a href="#contato">💬 Contato</a>
+        <a href="#trabalhe">🤝 Trabalhe Conosco</a>
+        <a href="#conta">👤 Minha Conta</a>
+      </nav>
+    </div>
+  </header>
+  <section class="hero" id="inicio">
+    <div class="hero-inner">
+      <div class="eyebrow">Feito com carinho, todos os dias</div>
+      <h1>Um pedacinho de casa em cada mordida.</h1>
+      <p>Pães quentinhos, receitas de família e aquele cheirinho bom que dá vontade de ficar.</p>
+      <a class="button" href="#doces">Conheça nosso cardápio</a>
+    </div>
+  </section>
+  <main>
+    <div class="intro">
+      <h2>Bem-vindo à nossa padaria</h2>
+      <p>Na Pão &amp; Afeto, cada fornada é preparada com ingredientes selecionados e muito cuidado. Escolha algo gostoso e aproveite!</p>
+    </div>
+    <section class="cards" aria-label="Nossas opções">
+      <article class="card" id="doces"><div class="icon" aria-hidden="true">🍰</div><h3>Doces</h3><p>Bolos, tortas, sonhos e outras delícias para adoçar o seu dia.</p><a class="button" href="#form-encomenda">Encomendar doces</a></article>
+      <article class="card" id="salgados"><div class="icon" aria-hidden="true">🥐</div><h3>Salgados</h3><p>Pães, empadas e salgados assados, sempre fresquinhos.</p><a class="button" href="#form-encomenda">Encomendar salgados</a></article>
+      <article class="card" id="encomendas"><div class="icon" aria-hidden="true">🎂</div><h3>Encomendas</h3><p>Conte sua ocasião para a gente preparar algo especial.</p><a class="button" href="#form-encomenda">Fazer encomenda</a></article>
+      <article class="card" id="contato"><div class="icon" aria-hidden="true">💬</div><h3>Contato</h3><p>Fale com nossa equipe para tirar dúvidas ou fazer seu pedido.</p><a class="button" href="#rodape">Ver horário e endereço</a></article>
+      <article class="card" id="trabalhe"><div class="icon" aria-hidden="true">🤝</div><h3>Trabalhe Conosco</h3><p>Gosta de gente, de cozinha e de pão quentinho? Queremos conhecer você.</p><button class="button" disabled>Em breve</button></article>
+      <article class="card" id="conta"><div class="icon" aria-hidden="true">👤</div><h3>Minha Conta</h3><p>Acesse sua conta para acompanhar pedidos e guardar seus favoritos.</p><button class="button" disabled>Em breve</button></article>
+    </section>
+    <section class="callout">
+      <h2>Tem festa chegando?</h2>
+      <p>Deixe os quitutes com a gente e aproveite cada momento.</p>
+      <a class="button" href="#form-encomenda">Fazer encomenda</a>
+    </section>
+
+    <form id="form-encomenda">
+      <h2>Faça sua encomenda</h2>
+
+      <label for="nome">Nome *</label>
+      <input id="nome" type="text" required maxlength="60" placeholder="Seu nome">
+
+      <label for="email">E-mail *</label>
+      <input id="email" type="email" required placeholder="voce@email.com">
+
+      <label for="tel">Telefone *</label>
+      <input id="tel" type="tel" required placeholder="(11) 91234-5678" pattern="\(\d{2}\) \d{4,5}-\d{4}" title="Use o formato (11) 91234-5678">
+
+      <label for="produto">O que você quer encomendar? *</label>
+      <select id="produto" required>
+        <option value="">Escolha uma opção</option>
+        <option>Doces</option>
+        <option>Salgados</option>
+        <option>Bolo de festa</option>
+      </select>
+
+      <label for="qtd">Quantidade (de 1 a 50)</label>
+      <input id="qtd" type="number" min="1" max="50" value="1" required>
+
+      <label for="data">Data de retirada *</label>
+      <input id="data" type="date" required>
+
+      <label for="obs">Observações (até 200 letras)</label>
+      <textarea id="obs" maxlength="200" rows="3"></textarea>
+
+      <div class="botoes">
+        <button class="button" type="submit">Fazer pedido</button>
+        <button class="button" type="button" onclick="limpar()">Limpar</button>
+      </div>
+    </form>
+    <p id="mensagem" role="status"></p>
+  </main>
+
+  <footer id="rodape">
+    <div class="foot">
+      <span>© 2026 Pão &amp; Afeto - Padaria artesanal</span>
+      <span>🕐 Aberto de segunda a sábado, das 6h às 20h</span>
+      <span>📍 Rua das Flores, 123 - Cotia/SP</span>
+      <span>Feito com carinho, servido quentinho.</span>
+    </div>
+  </footer>
+
+  <script>
+    var hoje = new Date(Date.now() - new Date().getTimezoneOffset() * 60000).toISOString().slice(0, 10);
+    document.getElementById("data").min = hoje;
+
+    document.getElementById("form-encomenda").addEventListener("submit", function (e) {
+      e.preventDefault();
+      document.getElementById("mensagem").textContent = "✔ Pedido enviado! Entraremos em contato para confirmar.";
+      this.reset();
+    });
+
+    function limpar() {
+      if (confirm("Deseja mesmo limpar o formulário?")) {
+        document.getElementById("form-encomenda").reset();
+      }
+    }
+
+    var links = document.querySelectorAll("nav a");
+    links.forEach(function (link) {
+      link.addEventListener("click", function () {
+        links.forEach(function (outro) {
+          outro.classList.remove("ativo");
+          outro.removeAttribute("aria-current");
+        });
+        link.classList.add("ativo");
+        link.setAttribute("aria-current", "page");
+      });
+    });
+  </script>
+</body>
+</html>
